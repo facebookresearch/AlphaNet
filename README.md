@@ -1,7 +1,7 @@
 # AlphaNet: Improved Training of Supernet with Alpha-Divergence
 This repository contains our PyTorch training code, evaluation code and pretrained models for AlphaNet.
 
-Our implementation is largely based on [AttentiveNAS](https://github.com/facebookresearch/AttentiveNAS). 
+Our implementation is largely based on [AttentiveNAS](https://arxiv.org/pdf/2011.09011.pdf). 
 To reproduce our results, please first download the [AttentiveNAS repo](https://github.com/facebookresearch/AttentiveNAS), and use our *train\_alphanet.py* for training and *test\_alphanet.py* for testing.
 
 For more details, please see [AlphaNet: Improved Training of Supernet with Alpha-Divergence](https://arxiv.org/pdf/2102.07954.pdf) by Dilin Wang, Chengyue Gong, Meng Li, Qiang Liu, Vikas Chandra.
@@ -31,7 +31,7 @@ To reproduce our results:
 - To evaluate our pre-trained AlphaNet models, from AlphaNet-A0 to A6, on ImageNet with a single GPU, please run:
 
     ```python
-    python test_attentive_nas.py --config-file ./configs/eval_attentive_nas_models.yml --model a[0-6]
+    python test_alphanet.py --config-file ./configs/eval_alphanet_models.yml --model a[0-6]
     ```
 
     Expected results:
