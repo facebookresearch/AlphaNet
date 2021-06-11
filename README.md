@@ -1,6 +1,8 @@
 # AlphaNet: Improved Training of Supernet with Alpha-Divergence
 This repository contains our PyTorch training code, evaluation code and pretrained models for AlphaNet.
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/alphanet-improved-training-of-supernet-with/neural-architecture-search-on-imagenet)](https://paperswithcode.com/sota/neural-architecture-search-on-imagenet?p=alphanet-improved-training-of-supernet-with)
+
 Our implementation is largely based on [AttentiveNAS](https://arxiv.org/pdf/2011.09011.pdf). 
 To reproduce our results, please first download the [AttentiveNAS repo](https://github.com/facebookresearch/AttentiveNAS), and use our *train\_alphanet.py* for training and *test\_alphanet.py* for testing.
 
