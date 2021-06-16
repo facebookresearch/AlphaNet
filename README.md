@@ -45,8 +45,8 @@ To reproduce our results:
     | AlphaNet-A2     | 317 | 79.20 |
     | AlphaNet-A3    | 357 | 79.41 |
     | AlphaNet-A4     | 444 | 80.01 |
-    | AlphaNet-A5     | 491 | 80.29 |
-    | AlphaNet-A5-1    | 596 | 80.62 |
+    | AlphaNet-A5 (small)     | 491 | 80.29 |
+    | AlphaNet-A5 (base)    | 596 | 80.62 |
     | AlphaNet-A6     | 709 | 80.78 |
 
 
