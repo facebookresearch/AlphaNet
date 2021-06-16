@@ -48,7 +48,8 @@ To reproduce our results:
     | AlphaNet-A5 (small)     | 491 | 80.29 |
     | AlphaNet-A5 (base)    | 596 | 80.62 |
     | AlphaNet-A6     | 709 | 80.78 |
-
+    
+- Additionally, [here](https://drive.google.com/file/d/1NgZhJy8MJnuxjXkJ0gfnBGyrUVYwbAmx/view?usp=sharing) is our pretrained supernet with KL based inplace-KD and [here](https://drive.google.com/file/d/1rj1opDnlBD2_8ZV--LUSn8HXWfhiMdu8/view?usp=sharing) is our pretrained supernet without inplace-KD. 
 
 ## Training
 To train our AlphaNet models from scratch, please run:
