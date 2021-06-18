@@ -46,6 +46,8 @@ pareto_models:
         expand_ratio: [1, 4, 4, 5, 4, 6, 6]
         depth: [1, 3, 3, 4, 3, 5, 1]
 
+    # this is different from the a5 used in AttentiveNAS
+    # see https://github.com/facebookresearch/AlphaNet/issues/1
     a5:
         model: "alphanet_a5_small"
         resolution: 256
