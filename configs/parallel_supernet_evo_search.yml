@@ -1,0 +1,123 @@
+# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+
+arch: 'attentive_nas_dynamic_model'
+exp_name: "parallel_supernet_evo_search"
+
+# your pretrained supernet path, e.g.,
+resume: "./alphanet_data/alphanet_pretrained.pth.tar"
+
+# settings for BN calibration
+batch_size_per_gpu: 256
+post_bn_calibration_batch_num: 32
+augment: "auto_augment_tf"
+
+evo_search:
+    #default 512
+    parent_popu_size: 4 
+    #default 128
+    mutate_size: 4
+    #default 128
+    mutate_size: 4
+    crossover_size: 4
+    mutate_prob: 0.2
+    evo_iter: 20
+    targeted_min_flops: 200 
+    targeted_max_flops: 1200
+    step: 10
+
+bn_momentum: 0.1
+bn_eps: 1e-5
+
+# just in case you have more GPUs
+n_gpu_per_node: 8
+data_loader_workers_per_gpu: 4
+num_nodes: 8
+n_cpu_per_node: 32
+gpu_type: 'GPU_V100_HOST'
+memory_per_node: '128g'
+
+### distributed settings ###
+distributed: True
+distributed_val: False
+multiprocessing_distributed: True
+dist_backend: 'nccl'
+eval_only: True
+
+### imagenet dataset ###
+dataset: 'imagenet'
+dataset_dir: "/data/local/packages/ai-group.imagenet-full-size/prod/imagenet_full_size/"
+n_classes: 1000
+drop_last: True
+
+print_freq: 50
+seed: 0
+
+#attentive nas search space
+# c: channels, d: layers, k: kernel size, t: expand ratio, s: stride, act: activation, se: se layer
+supernet_config:
+    use_v3_head: True
+    resolutions: [192, 224, 256, 288]
+    first_conv: 
+        c: [16, 24]
+        act_func: 'swish'
+        s: 2
+    mb1:
+        c: [16, 24]
+        d: [1, 2]
+        k: [3, 5]
+        t: [1]
+        s: 1
+        act_func: 'swish'
+        se: False
+    mb2:
+        c: [24, 32]
+        d: [3, 4, 5]
+        k: [3, 5]
+        t: [4, 5, 6]
+        s: 2
+        act_func: 'swish'
+        se: False
+    mb3:
+        c: [32, 40] 
+        d: [3, 4, 5, 6]
+        k: [3, 5]
+        t: [4, 5, 6]
+        s: 2
+        act_func: 'swish'
+        se: True
+    mb4:
+        c: [64, 72] 
+        d: [3, 4, 5, 6]
+        k: [3, 5]
+        t: [4, 5, 6]
+        s: 2
+        act_func: 'swish'
+        se: False
+    mb5:
+        c: [112, 120, 128] 
+        d: [3, 4, 5, 6, 7, 8]
+        k: [3, 5]
+        t: [4, 5, 6]
+        s: 1
+        act_func: 'swish'
+        se: True
+    mb6:
+        c: [192, 200, 208, 216] 
+        d: [3, 4, 5, 6, 7, 8]
+        k: [3, 5]
+        t: [6]
+        s: 2
+        act_func: 'swish'
+        se: True
+    mb7:
+        c: [216, 224] 
+        d: [1, 2]
+        k: [3, 5]
+        t: [6]
+        s: 1
+        act_func: 'swish'
+        se: True
+    last_conv:
+        c: [1792, 1984]
+        act_func: 'swish'
+
