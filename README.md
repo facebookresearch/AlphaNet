@@ -53,10 +53,16 @@ To reproduce our results:
 
 ## Training
 To train our AlphaNet models from scratch, please run:
-```
+```python
 python train_alphanet.py --config-file configs/train_alphanet_models.yml --machine-rank ${machine_rank} --num-machines ${num_machines} --dist-url ${dist_url}
 ```
 We adopt SGD training on 64 GPUs. The mini-batch size is 32 per GPU; all training hyper-parameters are specified in [train_alphanet_models.yml](configs/train_alphanet_models.yml).
+
+## Evolutionary search
+In "parallel_supernet_evo_search.py", we show how to search the Pareto models for the best FLOPs vs. accuracy tradeoffs; to run this example:
+```python
+python parallel_supernet_evo_search.py --config-file configs/parallel_supernet_evo_search.yml 
+```
 
 ## License
 AlphaNet is licensed under CC-BY-NC.
