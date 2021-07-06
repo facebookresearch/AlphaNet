@@ -59,7 +59,7 @@ python train_alphanet.py --config-file configs/train_alphanet_models.yml --machi
 We adopt SGD training on 64 GPUs. The mini-batch size is 32 per GPU; all training hyper-parameters are specified in [train_alphanet_models.yml](configs/train_alphanet_models.yml).
 
 ## Evolutionary search
-In "parallel_supernet_evo_search.py", we show how to search the Pareto models for the best FLOPs vs. accuracy tradeoffs; to run this example:
+In case you want to search the set of models of your own interest - we provide an example to show how to search the Pareto models for the best FLOPs vs. accuracy tradeoffs in _parallel_supernet_evo_search.py_; to run this example:
 ```python
 python parallel_supernet_evo_search.py --config-file configs/parallel_supernet_evo_search.yml 
 ```
