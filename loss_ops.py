@@ -93,6 +93,10 @@ def f_divergence(q_logits, p_logits, alpha, iw_clip=1e3):
     return loss, grad_loss
 
 
+"""
+It's often necessary to clip the maximum 
+gradient value (e.g., 1.0) when using this adaptive KD loss
+"""
 class  AdaptiveLossSoft(torch.nn.modules.loss._Loss):
     def __init__(self, alpha_min, alpha_max, iw_clip=1e3):
         super(AdaptiveLossSoft, self).__init__()
